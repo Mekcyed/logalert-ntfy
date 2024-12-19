@@ -1,2 +1,0 @@
-This is a test log
-ERROR: Something went wrong

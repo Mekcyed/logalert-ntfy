@@ -27,7 +27,7 @@ The repository is organized as follows:
 
 ### Configuration
 
-1. Create a `config.json` file in the root directory of the project with the following structure:
+1. Create a `config.example.json` file in the root directory of the project with the following structure:
 
 ```json
 config = {
