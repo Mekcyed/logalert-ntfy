@@ -1,0 +1,15 @@
+[project]
+name = "logalert-ntfy"
+version = "0.1.0"
+description = "Monitor logfiles and send notifications via ntfy"
+dependencies = [
+    "requests",
+    "watchdog",
+]
+
+[project.optional-dependencies]
+dev = [
+    "fastapi",
+    "uvicorn",
+    "pytest",
+] 

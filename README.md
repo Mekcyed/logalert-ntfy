@@ -47,6 +47,31 @@ config = {
 - `keywords`: A list of keywords to look for in the log file.
 - `ntfy_endpoint`: The ntfy endpoint URL to send notifications to.
 
+### Running Tests
+
+1. Ensure you have the test dependencies installed:
+
+```sh
+pip install -r requirements.dev.txt
+```
+
+2. Run the tests with logging output:
+
+```sh
+pytest -v -s --log-cli-level=INFO
+```
+
+This will:
+- Run all tests with verbose output (-v)
+- Show print statements and logging in real-time (-s)
+- Display INFO level logs during test execution (--log-cli-level=INFO)
+
+You can also run tests without logging:
+
+```sh
+pytest
+```
+
 ### Running the Python Executable
 
 1. Ensure you have Python installed on your system.
