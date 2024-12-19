@@ -24,7 +24,7 @@ def mock_server():
 def test_config():
     with tempfile.NamedTemporaryFile(mode='w', delete=False) as f:
         config = {
-            "log_file": "test.log",
+            "log_file": "tests/test.log",
             "keywords": ["ERROR"],
             "ntfy": {
                 "topic": "test",
@@ -37,18 +37,18 @@ def test_config():
 
 def test_log_monitoring(mock_server, test_config):
     # Create test log file
-    with open("test.log", "w") as f:
+    with open("tests/test.log", "w") as f:
         f.write("Initial log\n")
 
     # Initialize monitor
     monitor = LogMonitor(test_config)
 
     # Simulate log update with error
-    with open("test.log", "a") as f:
+    with open("tests/test.log", "a") as f:
         f.write("This is an ERROR message\n")
 
     # Trigger monitor
-    monitor.on_modified(type('Event', (), {'src_path': 'test.log'})())
+    monitor.on_modified(type('Event', (), {'src_path': 'tests/test.log'})())
 
     # Check if notification was sent
     time.sleep(1)
