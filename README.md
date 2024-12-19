@@ -22,3 +22,42 @@ The repository is organized as follows:
 ├── requirements.txt
 └── .gitignore
 ```
+
+## Configuration and Running Instructions
+
+### Configuration
+
+1. Create a `config.json` file in the root directory of the project with the following structure:
+
+```json
+config = {
+            "log_file": "test.log",
+            "keywords": ["ERROR"],
+            "ntfy": {
+                "topic": "test",
+                "server": "http://localhost:8000",
+                "priority": 3
+            }
+        }
+```
+
+- `log_file_path`: The path to the log file you want to monitor.
+- `keywords`: A list of keywords to look for in the log file.
+- `ntfy_endpoint`: The ntfy endpoint URL to send notifications to.
+
+### Running the Python Executable
+
+1. Ensure you have Python installed on your system.
+2. Install the required dependencies using `pip`:
+
+```sh
+pip install -r requirements.txt
+```
+
+3. Run the Python executable:
+
+```sh
+python src/logalert.py
+```
+
+The script will start monitoring the specified log file for the given keywords and send notifications to the configured ntfy endpoint when any of the keywords are found in the log file.

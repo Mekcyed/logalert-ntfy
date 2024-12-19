@@ -1,0 +1,9 @@
+{
+    "log_file": "/var/log/syslog",
+    "keywords": ["ERROR", "CRITICAL", "WARNING"],
+    "ntfy": {
+        "topic": "your-topic",
+        "server": "https://ntfy.sh",
+        "priority": 3
+    }
+}
