@@ -1,6 +1,8 @@
 # logalert-ntfy
 Monitoring logfiles for keywords - Sending notifications via [ntfy.sh](ntfy.sh)
 
+[![Build and Release](https://github.com/Mekcyed/logalert-ntfy/actions/workflows/build.yml/badge.svg)](https://github.com/Mekcyed/logalert-ntfy/actions/workflows/build.yml)
+
 The goals:
 - Create a python executable to monitor system logs and call a ntfy endpoint (see here https://docs.ntfy.sh/publish/)
 - Unittests should be created. For that we need a small fast api server to mimic the ntfy endpoint and see if the montoring works
