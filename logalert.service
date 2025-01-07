@@ -1,0 +1,12 @@
+[Unit]
+Description=LogAlert Service
+After=network.target
+
+[Service]
+User=your-username
+WorkingDirectory=/path/to/your/project
+ExecStart=/path/to/new/virtual/environment/bin/python /path/to/your/project/src/logalert.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

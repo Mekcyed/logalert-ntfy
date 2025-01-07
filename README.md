@@ -88,3 +88,76 @@ python src/logalert.py
 ```
 
 The script will start monitoring the specified log file for the given keywords and send notifications to the configured ntfy endpoint when any of the keywords are found in the log file.
+
+## Running as a Service on Linux
+
+### Creating a Virtual Environment and Installing Dependencies
+
+1. Create a virtual environment:
+
+```sh
+python3 -m venv /path/to/new/virtual/environment
+```
+
+2. Activate the virtual environment:
+
+```sh
+source /path/to/new/virtual/environment/bin/activate
+```
+
+3. Install the required dependencies:
+
+```sh
+pip install -r requirements.txt
+```
+
+### Sample `systemd` Service File
+
+Create a file named `logalert.service` with the following content:
+
+```ini
+[Unit]
+Description=LogAlert Service
+After=network.target
+
+[Service]
+User=your-username
+WorkingDirectory=/path/to/your/project
+ExecStart=/path/to/new/virtual/environment/bin/python /path/to/your/project/src/logalert.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### Enabling and Starting the Service
+
+1. Copy the `logalert.service` file to the systemd directory:
+
+```sh
+sudo cp logalert.service /etc/systemd/system/
+```
+
+2. Reload the systemd daemon to recognize the new service:
+
+```sh
+sudo systemctl daemon-reload
+```
+
+3. Enable the service to start on boot:
+
+```sh
+sudo systemctl enable logalert.service
+```
+
+4. Start the service:
+
+```sh
+sudo systemctl start logalert.service
+```
+
+5. Check the status of the service:
+
+```sh
+sudo systemctl status logalert.service
+```
